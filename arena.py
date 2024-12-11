@@ -10,7 +10,7 @@ def batalha(p1 : Jogador, p2 : Jogador, turno):
     print("\n")
 
     if turno % 2 == 0:
-        print("Jogador 1\n")
+        print(p1.nome,"\n")
         esc = int(input("O que vai fazer?\n1 - Atacar\n2 - Fugir\nDigite AQUI: "))
         print("\n")
 
@@ -62,7 +62,7 @@ def batalha(p1 : Jogador, p2 : Jogador, turno):
                 p1.fugir()
 
     elif turno % 2 == 1:
-        print("Jogador 2\n")
+        print(p2.nome,"\n")
         esc = int(input("O que vai fazer?\n1 - Atacar\n2 - Fugir\nDigite AQUI: "))
         print("\n")
 
@@ -114,11 +114,11 @@ def batalha(p1 : Jogador, p2 : Jogador, turno):
             p2.fugir()
 
     if p1.vida >= 1 and p2.vida >= 1:
-        return print(" Jogador 1: ",p1.vida,"\n","Jogador 2: ",p2.vida,"\n")
+        return print("Vida de", p1.nome,":", p1.vida,"\nVida de", p2.nome,":",p2.vida)
     elif p2.vida <= 0:
-        return print("Jogador 1 VENCEU !!!\n\nVida Jogador 1: ", p1.vida, "\nVida Jogador 2: 0")
+        return print(p1.nome, "VENCEU !!!\n\nVida de", p1.nome,":", p1.vida, "\nVida de", p2.nome,": 0")
     elif p1.vida <= 0:
-        return print("Jogador 2 VENCEU !!!\n\nVida Jogador 2: ", p2.vida, "\nVida Jogador 1: 0")
+        return print(p2.nome, "VENCEU !!!\n\nVida de", p2.nome,":", p2.vida, "\nVida de", p1.nome,": 0")
 
 # A arena funciona como um arquivo de teste, qualquer coisa que queira ser testada será feito aqui.
 
@@ -130,11 +130,10 @@ if __name__ == "__main__":
     dano = 5
 
     e1 = Espada(dano)
-    b1 = Besta(dano)
-
+    b1 = Besta(dano)    
     
-    j1 = Jogador(50, dano)
-    j2 = Jogador(50, dano)
+    j1 = Jogador(50, dano, "Tadeu", 500)
+    j2 = Jogador(50, dano, "Lineu", 3)   
 
     j1.inv_armas.append(e1)
     j1.inv_armas.append(b1)
@@ -142,8 +141,13 @@ if __name__ == "__main__":
     j2.inv_armas.append(e1)
     j2.inv_armas.append(b1)
 
-    x = 1
+    j1.evoluir(j1)
 
-    while(j1.vida >= 1 and j2.vida >= 1):
-        x += 1
-        batalha(j1, j2, x)
+    print(j1.vida)
+    print(j1.dano)
+    print(j1.exp)
+
+    # x = 1
+    # while(j1.vida >= 1 and j2.vida >= 1):
+    #     x += 1
+    #     batalha(j1, j2, x)
