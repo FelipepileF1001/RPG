@@ -5,6 +5,8 @@ from player import *
 from typing import *
 import random
 
+# A arena funciona como um arquivo de teste, qualquer coisa que queira ser testada será feito aqui.
+
 if __name__ == "__main__":
     p1 = Jogador(50, 5)
 

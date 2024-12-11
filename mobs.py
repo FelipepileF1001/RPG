@@ -1,3 +1,5 @@
+# Classe principal de qualquer criatura.
+
 class Mob:
     vida : int
     dano : int
@@ -11,4 +13,3 @@ class Mob:
 
     def fugir(self):
         return 0
-    

@@ -1,5 +1,8 @@
 from mobs import *
 
+# Este arquivo está reservado a armas de players e inimigos, qualquer item que pode ser usado para ferir uma criatura
+# será considerado uma arma, sendo ela uma espada, arco ou cajado.
+
 class Arma:
     dano : int
 
@@ -9,7 +12,7 @@ class Arma:
     def golpear(self, dano, Mob):
         Mob.vida -= dano
 
-#LONGA DISTÂNCIA______________________________________________________________________________________________________
+#LONGA DISTÂNCIA
 class Longe(Arma):
     def atirar(self, dano, Mob):
         Mob.vida -= dano
@@ -22,7 +25,7 @@ class Besta(Longe):
     dano = 20
     crit_dano = 50
 
-#CURTA DISTÂNCIA________________________________________________________________________________________________________
+#CURTA DISTÂNCIA
 class Perto(Arma):
     def atacar(self, dano, Mob):
         Mob.vida -= dano
