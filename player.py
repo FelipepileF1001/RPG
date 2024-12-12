@@ -24,3 +24,8 @@ class Jogador(Mob):
             Jogador.exp -= 100
         else:
             print("Falta", 100-Jogador.exp,"pontos para evoluir !!!")
+
+    def criar_escolhas(self, Jogador):
+        x = len(Jogador.inv_armas)
+        for i in range(0, x):
+            print("\n",i+1,"-",Jogador.inv_armas[i].nome)

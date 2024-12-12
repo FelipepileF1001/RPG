@@ -1,8 +1,4 @@
-from mobs import *
-from armas import *
-from itens import *
 from player import *
-from typing import *
 import random
 
 def batalha(p1 : Jogador, p2 : Jogador, turno):
@@ -124,30 +120,20 @@ def batalha(p1 : Jogador, p2 : Jogador, turno):
 
 if __name__ == "__main__":
 
-    cura = Potion(2, 10, True)
-    poison = Potion(2, 10, False)
-
     dano = 5
 
-    e1 = Espada(dano)
-    b1 = Besta(dano)    
+    e1 = Espada(dano, "Lâmina de Aço")
+    b1 = Besta(dano, "Visão Plena")    
+    e2 = Espada(dano, "Espada de Treinamento")
     
     j1 = Jogador(50, dano, "Tadeu", 500)
     j2 = Jogador(50, dano, "Lineu", 3)   
 
     j1.inv_armas.append(e1)
     j1.inv_armas.append(b1)
+    j1.inv_armas.append(e2)
 
     j2.inv_armas.append(e1)
     j2.inv_armas.append(b1)
 
-    j1.evoluir(j1)
-
-    print(j1.vida)
-    print(j1.dano)
-    print(j1.exp)
-
-    # x = 1
-    # while(j1.vida >= 1 and j2.vida >= 1):
-    #     x += 1
-    #     batalha(j1, j2, x)
+    j1.criar_escolhas(j1)

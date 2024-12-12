@@ -1,13 +1,17 @@
+from abc import ABCMeta, ABC, abstractmethod
 from mobs import *
+import random
 
 # Este arquivo está reservado a armas de players e inimigos, qualquer item que pode ser usado para ferir uma criatura
 # será considerado uma arma, sendo ela uma espada, arco ou cajado.
 
-class Arma:
+class Arma(ABC):
+    nome : str
     dano : int
 
-    def __init__(self, dano):
+    def __init__(self, dano, nome):
         self.dano = dano
+        self.nome = nome
 
     def golpear(self, dano, Mob):
         Mob.vida -= dano
@@ -18,7 +22,7 @@ class Longe(Arma):
         Mob.vida -= dano
 
 class Arco(Longe):
-    dano = 10
+    dano = random.randrange(10, 15)
     crit_dano = 25
 
 class Besta(Longe):
